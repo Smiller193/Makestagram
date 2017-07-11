@@ -16,7 +16,7 @@ import FirebaseDatabase
 typealias FIRUser = FirebaseAuth.User
 
 class LoginViewController: UIViewController, FUIAuthDelegate {
-
+    
     // MARK: - Properties
     @IBOutlet weak var loginButton: UIButton!
     // MARK: - VC Lifestyle
@@ -39,28 +39,45 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
         if let error = error {
             assertionFailure("Error signing in: \(error.localizedDescription)")
+            
+            
+            
+            
             return
         }
         
         
         guard let user = user
+            
             else {return}
-        
-        let userRef = Database.database().reference().child("users").child(user.uid)
-        userRef.observeSingleEvent(of: .value, with: {(snapshot) in
-        // 4 retrieve user data from snapshot
-        
-            if let user = User(snapshot: snapshot) {
-                print("Welcome back, \(user.username).")
+        UserService.show(forUID: user.uid) { (user) in
+            if let user = user {
+                // handle existing user
+                User.setCurrent(user)
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: .main)
+                if let initialViewController = storyboard.instantiateInitialViewController() {
+                    self.view.window?.rootViewController = initialViewController
+                    self.view.window?.makeKeyAndVisible()
+                }
             } else {
-                print("New user!")
+                // handle new user
+                self.performSegue(withIdentifier: "toCreateUsername", sender: self)
             }
-        })
         
         print("handle user signup / login")
+        
     }
     
+    }
+    
+    
+    
 }
+
+
+
+
 
 
 
