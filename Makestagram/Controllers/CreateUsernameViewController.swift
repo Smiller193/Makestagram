@@ -25,12 +25,7 @@ class CreateUsernameViewController: UIViewController {
         guard let firUser = Auth.auth().currentUser,
             let username = usernameTextField.text,
             !username.isEmpty else { return }
-        
-        UserService.create(firUser, username: username) { (user) in
-            guard let user = user else { return }
-            
-            print("Created new user: \(user.username)")
-        }
+      
         
         
         UserService.create(firUser, username: username) { (user) in
@@ -39,13 +34,11 @@ class CreateUsernameViewController: UIViewController {
                 return
             }
             
-            User.setCurrent(user)
+            User.setCurrent(user, writeToUserDefaults: true)
             
-            let storyboard = UIStoryboard(name: "Main", bundle: .main)
-            if let initialViewController = storyboard.instantiateInitialViewController() {
-                self.view.window?.rootViewController = initialViewController
-                self.view.window?.makeKeyAndVisible()
-            }
+            let initialViewController = UIStoryboard.initialViewController(for: .main)
+            self.view.window?.rootViewController = initialViewController
+            self.view.window?.makeKeyAndVisible()
         }
     }
     
