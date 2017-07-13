@@ -25,13 +25,27 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostImageCell" id="8ZI-OM-mmz">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostImageCell" rowHeight="375" id="8ZI-OM-mmz" customClass="PostImageCell" customModule="Makestagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="375"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8ZI-OM-mmz" id="1ZD-tZ-tnR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aR8-eo-enF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aR8-eo-enF" firstAttribute="top" secondItem="1ZD-tZ-tnR" secondAttribute="top" id="Jzi-XC-Omw"/>
+                                                <constraint firstAttribute="trailing" secondItem="aR8-eo-enF" secondAttribute="trailing" id="WIb-6J-OPo"/>
+                                                <constraint firstItem="aR8-eo-enF" firstAttribute="leading" secondItem="1ZD-tZ-tnR" secondAttribute="leading" id="bex-DV-Mem"/>
+                                                <constraint firstAttribute="bottom" secondItem="aR8-eo-enF" secondAttribute="bottom" id="j5e-ok-wPq"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="postImageView" destination="aR8-eo-enF" id="C6b-1E-Va4"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
