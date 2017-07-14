@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jUU-uo-Rg5">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Find Friends-->
+        <scene sceneID="o9X-Po-BOe">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="hFT-Z9-gBM" customClass="FindFriendsViewController" customModule="Makestagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7CT-VR-pzi"/>
+                        <viewControllerLayoutGuide type="bottom" id="H7P-NY-vw1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qeR-Cp-XHF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rSD-cJ-Gcn">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FindFriendsCell" rowHeight="71" id="6Yl-qx-yZ7" customClass="FindFriendsCell" customModule="Makestagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="71"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Yl-qx-yZ7" id="7eG-tx-NXu">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8P0-Wh-0ZG">
+                                                    <rect key="frame" x="23" y="8" width="207" height="54"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="my8-ap-yT3">
+                                                    <rect key="frame" x="242" y="18" width="115" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="115" id="Xd0-Qw-aSR"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="followButtonTapped:" destination="6Yl-qx-yZ7" eventType="touchUpInside" id="GLz-lZ-pLL"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="my8-ap-yT3" firstAttribute="top" secondItem="7eG-tx-NXu" secondAttribute="topMargin" constant="10" id="1M5-e4-0eU"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="my8-ap-yT3" secondAttribute="bottom" constant="10" id="I9p-Wp-1Lt"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="8P0-Wh-0ZG" secondAttribute="bottom" id="MPe-dh-v0T"/>
+                                                <constraint firstItem="my8-ap-yT3" firstAttribute="leading" secondItem="8P0-Wh-0ZG" secondAttribute="trailing" constant="12" id="XC6-FW-1zO"/>
+                                                <constraint firstItem="8P0-Wh-0ZG" firstAttribute="top" secondItem="7eG-tx-NXu" secondAttribute="topMargin" id="quV-bZ-MKv"/>
+                                                <constraint firstItem="8P0-Wh-0ZG" firstAttribute="leading" secondItem="7eG-tx-NXu" secondAttribute="leadingMargin" constant="15" id="u9U-Ub-uGi"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="my8-ap-yT3" secondAttribute="trailing" constant="10" id="wRU-La-2oB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="followButton" destination="my8-ap-yT3" id="ut3-R0-H4h"/>
+                                            <outlet property="usernameLabel" destination="8P0-Wh-0ZG" id="2cp-84-6RS"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="hFT-Z9-gBM" id="V9s-gq-NEY"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="H7P-NY-vw1" firstAttribute="top" secondItem="rSD-cJ-Gcn" secondAttribute="bottom" id="5kv-wX-KB4"/>
+                            <constraint firstItem="rSD-cJ-Gcn" firstAttribute="top" secondItem="7CT-VR-pzi" secondAttribute="bottom" id="Kco-cr-Rya"/>
+                            <constraint firstItem="rSD-cJ-Gcn" firstAttribute="leading" secondItem="qeR-Cp-XHF" secondAttribute="leading" id="Z9q-GI-2rg"/>
+                            <constraint firstAttribute="trailing" secondItem="rSD-cJ-Gcn" secondAttribute="trailing" id="lgr-nO-XcT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Find Friends" id="VOs-Br-h92"/>
+                    <connections>
+                        <outlet property="tableView" destination="rSD-cJ-Gcn" id="VbV-WI-XXM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dwt-NO-MOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-544.79999999999995" y="735.38230884557731"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="66f-dW-ohV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jUU-uo-Rg5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="tab_find_friends_black" id="dqm-Kf-i8t">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K02-U8-AUv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hFT-Z9-gBM" kind="relationship" relationship="rootViewController" id="b9I-fm-Jpe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5WQ-I7-pap" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1484" y="735.38230884557731"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tab_find_friends_black" width="25" height="25"/>
+    </resources>
+</document>

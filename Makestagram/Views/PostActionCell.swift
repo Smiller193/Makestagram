@@ -29,8 +29,8 @@ class PostActionCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    @IBAction func likeButtonTapped(_ sender: Any) {
-         delegate?.didTapLikeButton(sender as! UIButton, on: self)
+    @IBAction func likeButtonTapped(_ sender: UIButton) {
+         delegate?.didTapLikeButton(sender, on: self)
     }
     
     static let height: CGFloat = 46
