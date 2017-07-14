@@ -53,12 +53,12 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="LE6-Oc-756" firstAttribute="leading" secondItem="NnO-fp-BOY" secondAttribute="leadingMargin" constant="15" id="GRh-IA-Oem"/>
+                                                <constraint firstItem="LE6-Oc-756" firstAttribute="leading" secondItem="NnO-fp-BOY" secondAttribute="leadingMargin" constant="15" id="0oI-c2-pbw"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="HkH-c6-LIk" secondAttribute="trailing" id="KRK-DE-37v"/>
-                                                <constraint firstItem="LE6-Oc-756" firstAttribute="top" secondItem="NnO-fp-BOY" secondAttribute="topMargin" id="Ovr-Ql-oEY"/>
+                                                <constraint firstItem="LE6-Oc-756" firstAttribute="bottom" secondItem="NnO-fp-BOY" secondAttribute="bottomMargin" id="P0W-b8-bcK"/>
+                                                <constraint firstItem="HkH-c6-LIk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LE6-Oc-756" secondAttribute="trailing" constant="15" id="Y7C-Qi-Y50"/>
                                                 <constraint firstItem="HkH-c6-LIk" firstAttribute="centerY" secondItem="NnO-fp-BOY" secondAttribute="centerY" id="aBP-gk-87K"/>
-                                                <constraint firstItem="HkH-c6-LIk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LE6-Oc-756" secondAttribute="trailing" constant="15" id="gje-gg-N81"/>
-                                                <constraint firstItem="LE6-Oc-756" firstAttribute="bottom" secondItem="NnO-fp-BOY" secondAttribute="bottomMargin" id="w9q-bR-tMi"/>
+                                                <constraint firstItem="LE6-Oc-756" firstAttribute="top" secondItem="NnO-fp-BOY" secondAttribute="topMargin" id="y8X-uc-ZJN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
