@@ -17,6 +17,7 @@ class Post {
     let creationDate: Date
     var likeCount: Int
     let poster: User
+    var isLiked = false
     
     init(imageURL: String, imageHeight: CGFloat) {
         self.imageURL = imageURL
