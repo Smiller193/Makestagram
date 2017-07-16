@@ -13,22 +13,31 @@ import Kingfisher
 
 
 class HomeViewController: UIViewController {
-
+let refreshControl = UIRefreshControl()
+    
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [Post]()
     
     
-override func viewDidLoad() {
-    super.viewDidLoad()
-    UserService.posts(for: User.current) { (posts) in
-        self.posts = posts
-        self.tableView.reloadData()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        configureTableView()
+        reloadTimeline()
     }
     
-    configureTableView()
-}
-    
+    func reloadTimeline() {
+        UserService.timeline { (posts) in
+            self.posts = posts
+            
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+            
+            self.tableView.reloadData()
+        }
+    }
     let timestampFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
@@ -68,7 +77,7 @@ extension HomeViewController: UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostHeaderCell") as! PostHeaderCell
-            cell.usernameLabel.text = User.current.username
+            cell.usernameLabel.text = post.poster.username
             
             return cell
             
@@ -102,6 +111,9 @@ extension HomeViewController: UITableViewDataSource {
         tableView.tableFooterView = UIView()
         // remove separators from cells
         tableView.separatorStyle = .none
+        
+        refreshControl.addTarget(self, action: #selector(reloadTimeline), for: .valueChanged)
+        tableView.addSubview(refreshControl)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
