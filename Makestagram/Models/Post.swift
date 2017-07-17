@@ -59,3 +59,5 @@ class Post {
         self.poster = User(uid: uid, username: username)
     }
 }
+
+
